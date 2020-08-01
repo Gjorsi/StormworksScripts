@@ -24,12 +24,6 @@ function onTick()
       rAngle = 45*rudder
     end
 	
-		if input.getBool(1) then
-			touchX = input.getNumber(3)
-			touchY = input.getNumber(4)
-
-		end
-	
 		if heading < 0 then
 			headingD = (math.abs(heading))*360
 		elseif heading == 0 then
@@ -65,18 +59,18 @@ function onDraw()
 	
 	if not initialized then initialize() end
 	
-	screen.setColor(0,255,0,255)
+	screen.setColor(0,200,0,255)
 	
 	--rudder
   rVec1 = vector(rXA, rYA, rAngle, rL)
   rVec2 = vector(rXA+1, rYA, rAngle, rL)
   screen.drawLine(rXA, rYA, rVec1.x, rVec1.y)
   screen.drawLine(rXA+1, rYA, rVec2.x, rVec2.y)
-  screen.setColor(255,0,0,255)
+  screen.setColor(200,0,0,255)
   screen.drawLine(rXA-1, rYA, rXA-rL+1, rYA+rL-2)
   screen.drawLine(rXA+2, rYA, rXA+rL, rYA+rL-2)
   
-  screen.setColor(0,255,0,255)
+  screen.setColor(0,200,0,255)
 	--draw battery
 	screen.drawLine(b.x1, b.y2, b.x2, b.y2)
 	screen.drawLine(b.x2, b.y2, b.x2, b.y1)
